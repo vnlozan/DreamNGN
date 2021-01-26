@@ -6,7 +6,12 @@ extern DreamNGN::Application* DreamNGN::CreateApplication();
 
 
 int main( int argc, char** argv ) {
-	printf( "Welcome to DreamNGN!\n" );
+
+	DreamNGN::Log::Init();
+
+	DN_CORE_WARN( "Initialized Core Logger!" );
+	DN_INFO( "Initialized App Logger!" );
+
 	auto app = DreamNGN::CreateApplication();
 	app->Run();
 	delete app;
