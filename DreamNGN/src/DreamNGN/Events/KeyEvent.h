@@ -5,6 +5,8 @@
 #include <sstream>
 
 namespace DreamNGN {
+
+
 	//abstract class
 	class DN_API KeyEvent : public Event {
 	public:
@@ -30,5 +32,20 @@ namespace DreamNGN {
 
 	private:
 		int m_RepeatCount;
+	};
+
+	class DN_API KeyReleasedEvent : public KeyEvent {
+	public:
+		KeyReleasedEvent( int keycode )
+			: KeyEvent( keycode ) {
+		}
+
+		std::string ToString() const override {
+			std::stringstream ss;
+			ss << "KeyReleasedEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE( KeyReleased )
 	};
 }
