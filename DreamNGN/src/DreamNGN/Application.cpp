@@ -1,3 +1,4 @@
+#include "dnpch.h"
 #include "Application.h"
 
 #include "DreamNGN/Events/ApplicationEvent.h"

@@ -18,6 +18,10 @@ project "DreamNGN"
     targetdir ( "bin/" .. outputdir .. "/%{prj.name}" )
     objdir ( "bin-int/" .. outputdir .. "/%{prj.name}" )
 
+    --Precompiled headers
+    pchheader "dnpch.h"
+    pchsource "DreamNGN/src/dnpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
