@@ -1,3 +1,6 @@
 [submodule "DreamNGN/vendor/spdlog"]
 	path = DreamNGN/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "DreamNGN/vendor/GLFW"]
+	path = DreamNGN/vendor/GLFW
+	url = https://github.com/TheCherno/glfw

@@ -10,6 +10,12 @@ workspace "DreamNGN"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" -- Debug/Windows/x64
 
+-- Include dirs relative to root folder ( solution directory )
+IncludeDir = {}
+IncludeDir["GLFW"] = "DreamNGN/vendor/GLFW/include"
+
+include "DreamNGN/vendor/GLFW"
+
 project "DreamNGN"
     location "DreamNGN"
     kind "SharedLib" -- dll
@@ -30,8 +36,15 @@ project "DreamNGN"
 
     includedirs
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/src"
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
