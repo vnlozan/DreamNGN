@@ -12,6 +12,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+
+#include "DreamNGN/Log.h"
+
 #ifdef DN_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
