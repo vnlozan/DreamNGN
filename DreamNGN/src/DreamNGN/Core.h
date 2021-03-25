@@ -17,4 +17,5 @@
 	#define DN_ASSERT( x, ... )
 	#define DN_CORE_ASSERT( x, ... )
 #endif
+
 #define BIT(x) ( 1 << x )

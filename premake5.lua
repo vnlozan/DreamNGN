@@ -65,14 +65,17 @@ project "DreamNGN"
 
     filter "configurations:Debug"
         defines "DN_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
     
     filter "configurations:Release"
         defines "DN_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "DN_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -114,10 +117,12 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "DN_DEBUG"
+        buildoptions "/MDd" -- c/c++ -> code generation -> runtime library : multi-threaded debug dll (/MDd)
         symbols "On"
     
     filter "configurations:Release"
         defines "DN_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
