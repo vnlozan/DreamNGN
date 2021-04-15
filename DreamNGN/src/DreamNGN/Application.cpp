@@ -1,7 +1,7 @@
 #include "dnpch.h"
 #include "Application.h"
 #include "DreamNGN/Log.h"
-#include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 namespace DreamNGN {
 

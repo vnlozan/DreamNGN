@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" -- Debug/Windows
 -- Include dirs relative to root folder ( solution directory )
 IncludeDir = {}
 IncludeDir["GLFW"] = "DreamNGN/vendor/GLFW/include"
+IncludeDir["Glad"] = "DreamNGN/vendor/Glad/include"
 
 include "DreamNGN/vendor/GLFW"
+include "DreamNGN/vendor/Glad"
 
 project "DreamNGN"
     location "DreamNGN"
@@ -34,16 +36,19 @@ project "DreamNGN"
         "%{prj.name}/src/**.cpp"
     }
 
+-- Specifies the include file search paths for the compiler.
     includedirs
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -55,7 +60,8 @@ project "DreamNGN"
         defines
         {
             "DN_PLATFORM_WINDOWS",
-            "DN_BUILD_DLL"
+            "DN_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
     
         postbuildcommands
