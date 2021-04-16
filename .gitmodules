@@ -4,3 +4,6 @@
 [submodule "DreamNGN/vendor/GLFW"]
 	path = DreamNGN/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "DreamNGN/vendor/imgui"]
+	path = DreamNGN/vendor/imgui
+	url = https://github.com/TheCherno/imgui

@@ -19,6 +19,7 @@ class Sandbox : public DreamNGN::Application {
 public:
 	Sandbox() {
 		PushLayer( new ExampleLayer() );
+		PushOverlay( new DreamNGN::ImGuiLayer() );
 	}
 	~Sandbox() {
 

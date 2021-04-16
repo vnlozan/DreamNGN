@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" -- Debug/Windows
 IncludeDir = {}
 IncludeDir["GLFW"] = "DreamNGN/vendor/GLFW/include"
 IncludeDir["Glad"] = "DreamNGN/vendor/Glad/include"
+IncludeDir["ImGui"] = "DreamNGN/vendor/imgui"
 
 include "DreamNGN/vendor/GLFW"
 include "DreamNGN/vendor/Glad"
+include "DreamNGN/vendor/imgui"
 
 project "DreamNGN"
     location "DreamNGN"
@@ -42,13 +44,15 @@ project "DreamNGN"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
     links
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 

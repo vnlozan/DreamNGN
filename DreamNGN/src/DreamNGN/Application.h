@@ -7,6 +7,7 @@
 #include "DreamNGN/Events/ApplicationEvent.h"
 
 namespace DreamNGN {
+
 	class DN_API Application {
 	public:
 		Application();
@@ -18,12 +19,17 @@ namespace DreamNGN {
 		void OnEvent( Event& e );
 		void PushLayer( Layer* layer );
 		void PushOverlay( Layer* layer );
+
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose( WindowCloseEvent& e );
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 	// to be defined in client
 	Application* CreateApplication();
