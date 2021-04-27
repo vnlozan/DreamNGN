@@ -24,6 +24,7 @@ project "DreamNGN"
     location "DreamNGN"
     kind "SharedLib" -- dll
     language "C++"
+    staticruntime "off"
 
     targetdir ( "bin/" .. outputdir .. "/%{prj.name}" )
     objdir ( "bin-int/" .. outputdir .. "/%{prj.name}" )
@@ -58,7 +59,6 @@ project "DreamNGN"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -75,24 +75,27 @@ project "DreamNGN"
 
     filter "configurations:Debug"
         defines "DN_DEBUG"
-        buildoptions "/MDd"
+        -- buildoptions "/MDd"
+        runtime "Debug" -- 
         symbols "On"
     
     filter "configurations:Release"
         defines "DN_RELEASE"
-        buildoptions "/MD"
+        -- buildoptions "/MD"
+        runtime "Release" --
         optimize "On"
 
     filter "configurations:Dist"
         defines "DN_DIST"
-        buildoptions "/MD"
+        -- buildoptions "/MD"
+        runtime "Release" --
         optimize "On"
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
-
+    staticruntime "off"
 
     targetdir ( "bin/" .. outputdir .. "/%{prj.name}" )
     objdir ( "bin-int/" .. outputdir .. "/%{prj.name}" )
@@ -116,7 +119,7 @@ project "Sandbox"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
+        -- staticruntime "On"
         systemversion "latest"
 
         defines
@@ -127,14 +130,17 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "DN_DEBUG"
-        buildoptions "/MDd" -- c/c++ -> code generation -> runtime library : multi-threaded debug dll (/MDd)
+        -- buildoptions "/MDd" -- c/c++ -> code generation -> runtime library : multi-threaded debug dll (/MDd)
+        runtime "Debug" -- 
         symbols "On"
     
     filter "configurations:Release"
         defines "DN_RELEASE"
-        buildoptions "/MD"
+        runtime "Release" -- 
+        -- buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "DN_DIST"
+        runtime "Release" -- 
         optimize "On"

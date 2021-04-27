@@ -10,6 +10,10 @@
 	#error DreamNGN only support Windows!
 #endif
 
+#ifdef DN_DEBUG
+	#define DN_ENABLE_ASSERTS
+#endif
+
 #ifdef DN_ENABLE_ASSERTS
 	#define DN_ASSERT( x, ... ) { if(!(x)) { DN_ERROR( "Assertion Failed: {0}", __VA_ARGS__ ); __debugbreak(); } }
 	#define DN_CORE_ASSERT( x, ... ) { if(!(x)) { DN_CORE_ERROR( "Assertion Failed: {0}", __VA_ARGS ); __debugbreak(); } }
@@ -19,3 +23,5 @@
 #endif
 
 #define BIT(x) ( 1 << x )
+
+#define DN_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1 )
